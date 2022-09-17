@@ -1,0 +1,11 @@
+{
+    "name": "ipt10/dummyjson",
+    "autoload": {
+        "psr-4": {
+            "Ipt10\\Dummyjson\\": "src/"
+        }
+    },
+    "require": {
+        "guzzlehttp/guzzle": "^7.5"
+    }
+}
