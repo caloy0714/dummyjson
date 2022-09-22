@@ -14,7 +14,8 @@ $json='{
     "category": "smartphones"
   }';
 
-  echo $json;
+$myobj = json_decode($json);
+// testing print $obj->email;
 ?>
 <!doctype html>
 <html lang="en">
@@ -29,5 +30,11 @@ $json='{
   </head>
   <body>
     <h1>Hello, world!</h1>
+    <p><?php echo $myobj->id; ?></p>
+    <p><?php echo $myobj->title; ?></p>
+    <p><?php echo $myobj->description; ?></p>
+    <p><?php echo $myobj->price; ?></p>
+    <p><?php echo $my0bj->brand; ?></p>
+    <p><?php echo $myobj->category; ?></p>  
   </body>
 </html>
