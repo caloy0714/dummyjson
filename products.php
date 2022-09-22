@@ -38,3 +38,27 @@ $myobj = json_decode($json);
     <p><?php echo $myobj->category; ?></p>  
   </body>
 </html>
+
+
+
+/*
+<?php
+require "vendor/autoload.php";
+
+use GuzzleHttp\Client;
+//use GuzzleHttp\Psr7\Request;
+
+$client = new Client([
+        'base_uri' => 'https://dummyjson.com/'
+]);
+$client = new GuzzleHttp\Client(['base_uri' => 'https://dummyjson.com/']);
+$response = $client->request('GET', '/products');
+$code = $response->getStatusCode();
+$body = $response->getBody();
+
+var_dump(json_decode($body));
+//$response->var_dump(json_decode('id',true));
+//$myobj = json_decode($json);
+//$myobj = (json_decode($response('id', true)));
+//echo $myobj->id; 
+*/
