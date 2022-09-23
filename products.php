@@ -1,21 +1,18 @@
 <?php
 require "vendor/autoload.php";
+
 use GuzzleHttp\Client;
+//use GuzzleHttp\Psr7\Request;
 
-$json='{
-    "id": 1,
-    "title": "iPhone 9",
-    "description": "An apple mobile which is nothing like apple",
-    "price": 549,
-    "discountPercentage": 12.96,
-    "rating": 4.69,
-    "stock": 94,
-    "brand": "Apple",
-    "category": "smartphones"
-  }';
-
-$myobj = json_decode($json);
-// testing print $obj->email;
+$client = new Client([
+        'base_uri' => 'https://dummyjson.com/'
+]);
+//$client = new GuzzleHttp\Client(['base_uri' => 'https://dummyjson.com/']);
+$response = $client->request('GET', '/products');
+$code = $response->getStatusCode();
+$body = $response->getBody();
+$products=json_decode($body);
+var_dump($products)
 ?>
 <!doctype html>
 <html lang="en">
@@ -29,36 +26,21 @@ $myobj = json_decode($json);
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
   </head>
   <body>
-    <h1>Hello, world!</h1>
-    <p><?php echo $myobj->id; ?></p>
-    <p><?php echo $myobj->title; ?></p>
-    <p><?php echo $myobj->description; ?></p>
-    <p><?php echo $myobj->price; ?></p>
-    <p><?php echo $my0bj->brand; ?></p>
-    <p><?php echo $myobj->category; ?></p>  
-  </body>
+    <table>
+      <tr>Id</tr>
+      <tr>Title</tr>
+      <tr>Decription</tr>
+      <tr>Price</tr>
+      <tr>Brand</tr>
+      <tr>Category</tr>
+      <?php foreach($products as $product){?>
+        <td><?php print $product->id; ?></td>
+        <?php }?>
+    </table>
+    </body>
 </html>
 
 
 
-/*
-<?php
-require "vendor/autoload.php";
 
-use GuzzleHttp\Client;
-//use GuzzleHttp\Psr7\Request;
 
-$client = new Client([
-        'base_uri' => 'https://dummyjson.com/'
-]);
-$client = new GuzzleHttp\Client(['base_uri' => 'https://dummyjson.com/']);
-$response = $client->request('GET', '/products');
-$code = $response->getStatusCode();
-$body = $response->getBody();
-
-var_dump(json_decode($body));
-//$response->var_dump(json_decode('id',true));
-//$myobj = json_decode($json);
-//$myobj = (json_decode($response('id', true)));
-//echo $myobj->id; 
-*/
