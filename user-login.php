@@ -51,7 +51,7 @@ $client = new Client([
                 $response = $client->post('https://dummyjson.com/auth/login', $users);
                 $code = $response->getStatusCode();
                 $body = $response->getBody();
-                $users = json_decode($body); 
+                $users = json_decode($body, true); 
     ?>
 
             <div class="alert alert-success m-5" role="alert">
