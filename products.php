@@ -1,26 +1,15 @@
 <?php
 require "vendor/autoload.php";
-
 use GuzzleHttp\Client;
-//use GuzzleHttp\Psr7\Request;
 
 $client = new Client([
         'base_uri' => 'https://dummyjson.com/'
 ]);
-<<<<<<< HEAD
 $response = $client->get('https://dummyjson.com/products');
 $code = $response->getStatusCode();
 $body = $response->getBody();
 $products=json_decode($body)->products;
 //var_dump($products)
-=======
-//$client = new GuzzleHttp\Client(['base_uri' => 'https://dummyjson.com/']);
-$response = $client->request('GET', '/products');
-$code = $response->getStatusCode();
-$body = $response->getBody();
-$products=json_decode($body);
-var_dump($products)
->>>>>>> 2b6b4268941ed0b100c0aa8b9f62d80e5f80eb75
 ?>
 <!doctype html>
 <html lang="en">
@@ -33,7 +22,6 @@ var_dump($products)
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
   </head>
   <body>
-<<<<<<< HEAD
   <div class="container">
             <table>
                 <thead>
@@ -62,22 +50,8 @@ var_dump($products)
                 </tbody>
             </table>
         </div>
-=======
-    <table>
-      <tr>Id</tr>
-      <tr>Title</tr>
-      <tr>Decription</tr>
-      <tr>Price</tr>
-      <tr>Brand</tr>
-      <tr>Category</tr>
-      <?php foreach($products as $product){?>
-        <td><?php print $product->id; ?></td>
-        <?php }?>
-    </table>
->>>>>>> 2b6b4268941ed0b100c0aa8b9f62d80e5f80eb75
     </body>
 </html>
-
 
 
 
