@@ -46,7 +46,7 @@ $user = json_decode($body);
             </thead>
         <tbody>
             <tr>
-                <th scope="row" href="single-product.php"><?= $user->id ?></th>
+                <th scope="row" href="single-user.php"><?= $user->id ?></th>
                 <td><?=$user->firstName?></td>
                 <td><?=$user->lastName?></td>
                 <td><?=$user->email?></td>
